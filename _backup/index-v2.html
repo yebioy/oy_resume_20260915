@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>陈思怡 · 个人简历</title>
+    <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" rx="22" fill="%231b5e9e"/><text x="50" y="70" font-size="56" text-anchor="middle" fill="%23ffffff" font-family="sans-serif">%E9%99%88</text></svg>'>
+    <link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Sans+SC:wght@400;500;700;900&display=swap">
+    <style>
+        :root {
+            --paper: #f4f6f8;
+            --card: #ffffff;
+            --ink: #202a37;
+            --muted: #637084;
+            --line: #e3e8ee;
+            --accent: #1b5e9e;
+            --accent-deep: #123f6b;
+            --accent-soft: #eaf1f8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Noto Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Segoe UI", sans-serif;
+            background: var(--paper);
+            color: var(--ink);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ===== 顶部横幅 ===== */
+        .banner {
+            background: #e8edf3;
+            border-bottom: 3px double #c6d0dc;
+            padding: 44px 20px 38px;
+            text-align: center;
+        }
+
+        .banner h1 {
+            font-size: 2rem;
+            font-weight: 900;
+            letter-spacing: 0.35em;
+            text-indent: 0.35em;
+            color: var(--accent-deep);
+        }
+
+        .banner .banner-sub {
+            margin-top: 8px;
+            font-size: 0.85rem;
+            letter-spacing: 0.5em;
+            text-indent: 0.5em;
+            color: var(--muted);
+        }
+
+        /* ===== 内容卡片 ===== */
+        .card {
+            max-width: 720px;
+            margin: 32px auto 48px;
+            padding: 40px 48px 36px;
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            box-shadow: 0 10px 30px rgba(27, 43, 66, 0.06);
+        }
+
+        .block + .block {
+            margin-top: 30px;
+        }
+
+        .block-title {
+            font-size: 1.02rem;
+            font-weight: 700;
+            color: var(--accent-deep);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .block-title::before {
+            content: "";
+            width: 4px;
+            height: 1.05em;
+            border-radius: 2px;
+            background: var(--accent);
+        }
+
+        .block-title::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: var(--line);
+            margin-left: 4px;
+        }
+
+        .block-title span {
+            font-weight: 400;
+            font-size: 0.78rem;
+            color: var(--muted);
+            letter-spacing: 0.1em;
+        }
+
+        /* 基本信息 */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 6px 32px;
+            margin-top: 14px;
+        }
+
+        .info-item {
+            display: flex;
+            gap: 12px;
+            padding: 10px 14px;
+            border-radius: 10px;
+            transition: background 0.18s ease;
+        }
+
+        .info-item:hover {
+            background: #f6f9fc;
+        }
+
+        .info-item dt {
+            flex: 0 0 4.2em;
+            color: var(--accent);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .info-item dd {
+            font-size: 0.95rem;
+            word-break: break-all;
+        }
+
+        .info-item a {
+            color: var(--ink);
+            text-decoration: none;
+            border-bottom: 1px dashed #b9c4d2;
+            transition: color 0.18s ease, border-color 0.18s ease;
+        }
+
+        .info-item a:hover {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
+        }
+
+        /* 标签（兴趣爱好 / 竞赛） */
+        .chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 14px;
+        }
+
+        .chips span {
+            display: inline-block;
+            padding: 5px 16px;
+            border-radius: 999px;
+            background: var(--accent-soft);
+            border: 1px solid #d3e2f2;
+            color: var(--accent-deep);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* 个人经历（时间轴） */
+        .timeline {
+            margin-top: 14px;
+            display: grid;
+            grid-template-columns: 108px 18px 1fr;
+            align-items: stretch;
+        }
+
+        .tl-time {
+            padding: 4px 0;
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-align: right;
+            white-space: nowrap;
+        }
+
+        .tl-axis {
+            position: relative;
+        }
+
+        .tl-axis::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 2px;
+            background: var(--line);
+            transform: translateX(-50%);
+        }
+
+        .tl-dot {
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--accent);
+            border: 3px solid var(--card);
+            box-shadow: 0 0 0 2px var(--accent);
+            transform: translateX(-50%);
+        }
+
+        .tl-text {
+            padding: 3px 0 18px 8px;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        /* 发送邮件 */
+        .actions {
+            margin-top: 34px;
+            padding-top: 24px;
+            border-top: 1px solid var(--line);
+            display: flex;
+            justify-content: center;
+        }
+
+        .mail-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 34px;
+            border-radius: 999px;
+            background: var(--accent);
+            color: #fff;
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-decoration: none;
+            box-shadow: 0 6px 16px rgba(27, 94, 158, 0.24);
+            transition: background 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+        }
+
+        .mail-btn:hover {
+            background: var(--accent-deep);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 22px rgba(27, 94, 158, 0.30);
+        }
+
+        .mail-btn:active {
+            transform: translateY(0);
+        }
+
+        .mail-btn svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* ===== 右侧快捷图标 ===== */
+        .quick-bar {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 20;
+        }
+
+        .quick-bar a {
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: var(--card);
+            border: 1px solid var(--line);
+            color: var(--accent);
+            box-shadow: 0 4px 12px rgba(27, 43, 66, 0.08);
+            transition: background 0.18s ease, color 0.18s ease, transform 0.18s ease;
+        }
+
+        .quick-bar a:hover {
+            background: var(--accent);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        .quick-bar svg {
+            width: 19px;
+            height: 19px;
+        }
+
+        /* ===== 页脚 ===== */
+        .footer {
+            text-align: center;
+            padding: 0 16px 40px;
+            font-size: 0.78rem;
+            color: var(--muted);
+            letter-spacing: 0.06em;
+        }
+
+        /* ===== 响应式 ===== */
+        @media (max-width: 720px) {
+            .card {
+                margin: 20px 14px 40px;
+                padding: 28px 22px 26px;
+            }
+
+            .banner {
+                padding: 34px 16px 28px;
+            }
+
+            .banner h1 {
+                font-size: 1.6rem;
+                letter-spacing: 0.25em;
+                text-indent: 0.25em;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+                gap: 2px;
+            }
+
+            .timeline {
+                grid-template-columns: 92px 18px 1fr;
+            }
+
+            .quick-bar {
+                right: 10px;
+                gap: 10px;
+            }
+
+            .quick-bar a {
+                width: 44px;
+                height: 44px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="banner">
+        <h1>个人简历</h1>
+        <p class="banner-sub">Resume</p>
+    </header>
+
+    <main class="card">
+
+        <section class="block">
+            <h2 class="block-title">基本信息</h2>
+            <dl class="info-grid">
+                <div class="info-item">
+                    <dt>姓名</dt>
+                    <dd><a href="https://www.kdocs.cn/l/cms0v0uyOUzY" title="点击查看个人文档">陈思怡</a></dd>
+                </div>
+                <div class="info-item">
+                    <dt>籍贯</dt>
+                    <dd>广东普宁</dd>
+                </div>
+                <div class="info-item">
+                    <dt>居住地</dt>
+                    <dd>广东珠海</dd>
+                </div>
+                <div class="info-item">
+                    <dt>邮箱</dt>
+                    <dd><a href="mailto:renran_86@qq.com">renran_86@qq.com</a></dd>
+                </div>
+                <div class="info-item">
+                    <dt>电话</dt>
+                    <dd><a href="tel:18825677194">18825677194</a></dd>
+                </div>
+            </dl>
+        </section>
+
+        <section class="block">
+            <h2 class="block-title">兴趣爱好</h2>
+            <div class="chips">
+                <span>看漫剧</span>
+                <span>打羽毛球</span>
+            </div>
+        </section>
+
+        <section class="block">
+            <h2 class="block-title">个人经历</h2>
+            <div class="timeline">
+                <div class="tl-time">2025 – 2028</div>
+                <div class="tl-axis"><span class="tl-dot"></span></div>
+                <div class="tl-text">广东科学技术职业学院</div>
+            </div>
+        </section>
+
+        <section class="block">
+            <h2 class="block-title">竞赛</h2>
+            <div class="chips">
+                <span>软件杯</span>
+            </div>
+        </section>
+
+        <div class="actions">
+            <a class="mail-btn" href="mailto:renran_86@qq.com">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="2" y="4" width="20" height="16" rx="3"></rect>
+                    <path d="m2 7 10 6 10-6"></path>
+                </svg>
+                发送邮件
+            </a>
+        </div>
+
+    </main>
+
+    <aside class="quick-bar" aria-label="快捷联系方式">
+        <a href="mailto:renran_86@qq.com" title="发送邮件">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="4" width="20" height="16" rx="3"></rect>
+                <path d="m2 7 10 6 10-6"></path>
+            </svg>
+        </a>
+        <a href="tel:18825677194" title="拨打电话">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+        </a>
+        <a href="https://www.kdocs.cn/l/cms0v0uyOUzY" title="查看个人文档">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <path d="M14 2v6h6"></path>
+                <path d="M9 13h6"></path>
+                <path d="M9 17h4"></path>
+            </svg>
+        </a>
+    </aside>
+
+    <footer class="footer">陈思怡 · 个人简历 · 2026</footer>
+
+</body>
+</html>
