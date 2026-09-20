@@ -42,3 +42,15 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     })
 })
+
+// ===== 弹窗效果 =====
+// 页面打开时弹出提示
+window.onload = function() {
+    alert('hello world！欢迎来到陈思怡的简历页面~')
+
+    // 弹出输入框，问用户怎么称呼
+    let visitor = prompt('请问怎么称呼你？', '同学')
+    if (visitor) {
+        alert('你好，' + visitor + '！很高兴见到你~')
+    }
+}
